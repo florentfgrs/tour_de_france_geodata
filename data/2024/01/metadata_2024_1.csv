@@ -1,2 +1,2 @@
-numero;date;depart;arrivee;long;denivele;wiki
-1;29/06/2024;Florence (ITA);Rimini (ITA);206;3680;https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2024
+numero;date;depart;arrivee;long;denivele;type;wiki
+1;29/06/2024;Florence (ITA);Rimini (ITA);206;3680;1;https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2024
