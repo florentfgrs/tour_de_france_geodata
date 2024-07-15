@@ -11,7 +11,7 @@ Bienvenue dans le projet **Tour de France - Geodata** ! Ce dépôt a pour ambiti
 ## 📂 Structure des données dépôt
 
 ```bash
-Tour-de-France-Data-Repository/
+tour_de_france_geodata/
 │
 ├── data/
 │   ├── 2023/
