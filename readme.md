@@ -33,7 +33,7 @@ Pour chaque étape il doit y avoir :
 - Un fichier csv contenant les informations de l'étape et respectant la structure suivante
 
 ```csv
-numero;date;depart;arrivee;long;denivele
+numero;date;depart;arrivee;long;denivele;wiki
 ```
 
 | Nom du champ | Description | Exemple |
@@ -44,6 +44,7 @@ numero;date;depart;arrivee;long;denivele
 | arrivee      | Lieu d'arrivée, suivi du code pays au format alpha-3 conformément au standard [ISO 3166-1](https://fr.wikipedia.org/wiki/ISO_3166-1) si cette ville est hors de France. | Laval ou Florence (ITA) |
 | long         | Longueur en kilomètre de l'étape (ne prends pas en compte le départ fictif) | 192 |
 | denivele     | Dénivelé positif de l'étape en mètre | 541 |
+| wiki     | URL vers la page wikipédia de l'étape (si elle existe) | https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2024 |
 
 ## 🔍 Contenu des dossiers
 
@@ -52,6 +53,8 @@ numero;date;depart;arrivee;long;denivele
 `scripts/` : Des scripts Python pour récupérer, traiter et visualiser les données.
 
 `notebooks/` : Des notebooks Jupyter pour analyser et visualiser les données.
+
+`source_data.txt` : Un fichier pour recenser des liens ou on peux trouver des données pour alimenter le projet
 
 ## 💡 Pour aller plus loin
 
