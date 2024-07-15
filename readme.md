@@ -1,6 +1,6 @@
 # 📍 Tour de France - Geodata
 
-Bienvenue dans le projet **Tour de France - Data Repository** ! Ce dépôt a pour ambition de stocker toutes les données géographiques des parcours des étapes du Tour de France. Que vous soyez un passionné de cyclisme, un data scientist, géomaticien ou simplement curieux de découvrir les tracés des étapes, ce projet est fait pour vous.
+Bienvenue dans le projet **Tour de France - Geodata** ! Ce dépôt a pour ambition de stocker toutes les données géographiques des parcours des étapes du Tour de France. Que vous soyez un passionné de cyclisme, un data scientist, géomaticien ou simplement curieux de découvrir les tracés des étapes, ce projet est fait pour vous.
 
 ## 🏆 Objectifs du projet
 
@@ -17,10 +17,10 @@ Tour-de-France-Data-Repository/
 │   ├── 2023/
 │   │   ├── 01
 │   │   │   ├── trace_2023_1.geojson
-│   │   │   ├── metadata_2023_1.geojson
+│   │   │   ├── metadata_2023_1.csv
 │   │   ├── 02
 │   │   │   ├── trace_2024_1.geojson
-│   │   │   ├── metadata_2024_1.geojson
+│   │   │   ├── metadata_2024_1.csv
 │   └── ...
 ```
 
@@ -30,7 +30,7 @@ Pour chaque étape il doit y avoir :
   - Composé d'une seule et unique entité `Linestring` (et même de préférence `MultiLinestringZ` afin de concerver les informations de dénivellé)
   - Projeté en WGS84 (EPSG:4326)
 
-- Un fichier csv contenu les informations de l'étape et respectant la structure suivante
+- Un fichier csv contenant les informations de l'étape et respectant la structure suivante
 
 ```csv
 numero;date;depart;arrivee;long;denivele
@@ -47,14 +47,26 @@ numero;date;depart;arrivee;long;denivele
 
 ## 🔍 Contenu des dossiers
 
-data/ : Ce dossier contient les fichiers de données géographiques pour chaque étape du Tour de France, organisés par année.
-scripts/ : Des scripts Python pour récupérer, traiter et visualiser les données.
-notebooks/ : Des notebooks Jupyter pour analyser et visualiser les données.
+`data/` : Ce dossier contient les fichiers de données géographiques pour chaque étape du Tour de France, organisés par année.
 
-📝 Contribution
+`scripts/` : Des scripts Python pour récupérer, traiter et visualiser les données.
+
+`notebooks/` : Des notebooks Jupyter pour analyser et visualiser les données.
+
+## 💡 Pour aller plus loin
+
+Des idées en vrac:
+
+- Mettre à disposition des données sur un visualisateur carto web
+- Déployer depuis ce repo un site web présentant le projet et les données (type Mkdocs)
+- Mettre à disposition un script permettant de convetir un fichier GPX en un fichier geojson conforme au projet
+
+## 📝 Contribution
+
 Les contributions sont les bienvenues ! Un fichier CONTRIBUTING.md pour savoir comment procéder sera rédiger sous peu [WIP]
 
-📄 Licence
+## 📄 Licence
+
 Ce projet est sous licence GNU GENERAL PUBLIC LICENSE - voir le fichier LICENSE pour plus de détails.
 
 💬 Contact
