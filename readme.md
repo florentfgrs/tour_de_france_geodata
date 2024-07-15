@@ -70,7 +70,7 @@ Les contributions sont les bienvenues ! Un fichier CONTRIBUTING.md pour savoir c
 
 ## 📄 Licence
 
-Ce projet est sous licence GNU GENERAL PUBLIC LICENSE - voir le fichier LICENSE pour plus de détails.
+Ce projet est sous licence ODC Open Database License (ODbL) voir le fichier LICENSE pour plus de détails.
 
 💬 Contact
 Pour toute question, n'hésitez pas à ouvrir une issue ou à me contacter.
