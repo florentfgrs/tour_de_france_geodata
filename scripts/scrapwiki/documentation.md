@@ -9,7 +9,10 @@ Attention également à bien créer la sctructure des csv aupravant avec le scri
 Ce script prends deux arguments :
 
 - L'année
--Le nombre d'étapes
+- Le nombre d'étapes
+
+:warning: Ce script ne fonctionne que depuis l'édition 2016. Le formalisme de la page wikipédia en 2015 n'est pas le même.
+:warning: Entre 2016 et 2019 le denivelé n'est pas renseigner dans l'infobox de wikipédia, il faut chercher une autre source de données.
 
 ## Utilisation
 

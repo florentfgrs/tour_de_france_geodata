@@ -3,6 +3,20 @@ from bs4 import BeautifulSoup
 import requests as r
 from datetime import datetime
 import csv
+from pathlib import Path
+
+def create_metadata_file(year, step):
+    metadata_directory = Path(f"./data/{year}/{step:02d}")
+    metadata_directory.mkdir(parents=True, exist_ok=True)
+    metadata_path_str = metadata_directory / f"metadata_{year}_{step}.csv"
+    
+    if not metadata_path_str.exists():
+        with metadata_path_str.open('w', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=';')
+            writer.writerow(['numero', 'date', 'depart', 'arrivee', 'long', 'denivele', 'type', 'wiki'])
+        print(f"Fichier de métadonnées créé : {metadata_path_str}")
+    else:
+        print(f"Fichier de métadonnées existe déjà : {metadata_path_str}")
 
 def formate_date(date: str) -> str:
     mois_mapping = {
@@ -61,7 +75,10 @@ def scrap_wiki_write_csv(year, n):
     arrive = next((item[1] for item in values_list if "Lieu d'arrivée" in item), None)
     distance = next((item[1] for item in values_list if "Distance" in item), None).replace(",",".").replace(" km","")
     date = formate_date(next((item[1] for item in values_list if "Date" in item), None))
-    denivele = next((item[1] for item in values_list if "Dénivelé" in item), None).replace(" ", "").replace("m", "").replace('\xa0', '')
+    try :
+        denivele = next((item[1] for item in values_list if "Dénivelé" in item), None).replace(" ", "").replace("m", "").replace('\xa0', '')
+    except : 
+        denivele = "NC"
     type = next((item[1] for item in values_list if "Type" in item), None)
     if "montre" in type:
         type = 2
@@ -72,6 +89,8 @@ def scrap_wiki_write_csv(year, n):
         writer = csv.writer(file, delimiter=';')
         writer.writerow([n, date, depart, arrive, distance, denivele, type, url])
 
+    print([n, date, depart, arrive, distance, denivele, type, url])
+
 def main():
     parser = argparse.ArgumentParser(description="Récupère les pages Wikipedia des étapes du Tour de France et écrit dans un fichier CSV.")
     parser.add_argument('year', type=int, help='Année')
@@ -79,7 +98,8 @@ def main():
     args = parser.parse_args()
 
     for i in range(1, args.num_stages + 1):
+        create_metadata_file(args.year, i)
         scrap_wiki_write_csv(args.year, i)
 
 if __name__ == "__main__":
-    main()
+    main() 

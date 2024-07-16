@@ -7,17 +7,6 @@ def is_correctly_named(file, year, step):
     expected_name = f"trace_{year}_{step}.geojson"
     return file.name == expected_name
 
-def create_metadata_file(step_dir, year, step):
-    metadata_filename = f"metadata_{year}_{step}.csv"
-    metadata_path = step_dir / metadata_filename
-    if not metadata_path.exists():
-        with metadata_path.open('w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=';')
-            writer.writerow(['numero', 'date', 'depart', 'arrivee', 'long', 'denivele', 'type', 'wiki'])
-        print(f"Fichier de métadonnées créé : {metadata_path}")
-    else:
-        print(f"Fichier de métadonnées existe déjà : {metadata_path}")
-
 for year_dir in base_path.iterdir():
     if year_dir.is_dir() and year_dir.name.isdigit():
         year = year_dir.name
@@ -33,4 +22,3 @@ for year_dir in base_path.iterdir():
                             print(f"Renommé {file} en {new_path}")
                         else:
                             print(f"{file} est déjà correctement nommé")
-                create_metadata_file(step_dir, year, step)

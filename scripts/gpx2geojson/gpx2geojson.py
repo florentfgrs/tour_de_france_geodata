@@ -2,6 +2,18 @@ import argparse
 import gpxpy
 import geojson
 from pathlib import Path
+import csv
+
+def create_metadata_file(step_dir, year, step):
+    metadata_filename = f"metadata_{year}_{step}.csv"
+    metadata_path = step_dir / metadata_filename
+    if not metadata_path.exists():
+        with metadata_path.open('w', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=';')
+            writer.writerow(['numero', 'date', 'depart', 'arrivee', 'long', 'denivele', 'type', 'wiki'])
+        print(f"Fichier de métadonnées créé : {metadata_path}")
+    else:
+        print(f"Fichier de métadonnées existe déjà : {metadata_path}")
 
 def gpx_to_geojson(gpx_file_path):
     with open(gpx_file_path, 'r') as gpx_file:
