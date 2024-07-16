@@ -53,8 +53,6 @@ numero;date;depart;arrivee;long;denivele;type;wiki
 
 `scripts/` : Des scripts Python pour récupérer, traiter et visualiser les données.
 
-`notebooks/` : Des notebooks Jupyter pour analyser et visualiser les données.
-
 `source_data.txt` : Un fichier pour recenser des liens ou on peux trouver des données pour alimenter le projet
 
 ## 💡 Pour aller plus loin
@@ -63,7 +61,8 @@ Des idées en vrac:
 
 - Mettre à disposition des données sur un visualisateur carto web
 - Déployer depuis ce repo un site web présentant le projet et les données (type Mkdocs)
-- Mettre à disposition un script permettant de convetir un fichier GPX en un fichier geojson conforme au projet
+- Fournir un outil pour dessiner automatiquement les profils d'étapes
+- Vérifier le nommage et le contenu de `/data` dans la CI/CD
 
 ## 📝 Contribution
 
