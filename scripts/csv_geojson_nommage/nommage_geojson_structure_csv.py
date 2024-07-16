@@ -1,7 +1,7 @@
 from pathlib import Path
 import csv
 
-base_path = Path("path/to/my/repo/tour_de_france_geodata/data")
+base_path = Path("./data")
 
 def is_correctly_named(file, year, step):
     expected_name = f"trace_{year}_{step}.geojson"
