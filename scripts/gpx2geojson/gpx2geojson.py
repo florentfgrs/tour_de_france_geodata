@@ -9,15 +9,21 @@ def gpx_to_geojson(gpx_file_path):
 
     if gpx.tracks:
         track = gpx.tracks[0]
-        points = []
+        linestrings = []
         
         for segment in track.segments:
+            points = []
+            last_elevation = 0  # Utiliser une valeur par défaut au début
+            # Si une altitude est inconu on utilise l'altitude du dernier point connu
             for point in segment.points:
-                points.append((point.longitude, point.latitude))
+                if point.elevation is not None:
+                    last_elevation = point.elevation
+                points.append((point.longitude, point.latitude, last_elevation))
+            linestrings.append(points)
+        
+        multi_linestring = geojson.MultiLineString(linestrings)
 
-        linestring = geojson.LineString(points)
-
-        feature = geojson.Feature(geometry=linestring, properties={}, id="track", crs={"type": "name", "properties": {"name": "EPSG:4326"}})
+        feature = geojson.Feature(geometry=multi_linestring, properties={}, id="track", crs={"type": "name", "properties": {"name": "EPSG:4326"}})
 
         feature_collection = geojson.FeatureCollection([feature])
 
@@ -25,7 +31,6 @@ def gpx_to_geojson(gpx_file_path):
 
         with open(output_name, 'w') as geojson_file:
             geojson.dump(feature_collection, geojson_file, indent=2)
-
 def process_directory(directory_path):
     folder_path = Path(directory_path)
     if folder_path.is_dir():
