@@ -59,7 +59,7 @@ def scrap_wiki_write_csv(year, n):
 
     depart = next((item[1] for item in values_list if "Lieu de départ" in item), None)
     arrive = next((item[1] for item in values_list if "Lieu d'arrivée" in item), None)
-    distance = next((item[1] for item in values_list if "Distance" in item), None)
+    distance = next((item[1] for item in values_list if "Distance" in item), None).replace(",",".").replace(" km","")
     date = formate_date(next((item[1] for item in values_list if "Date" in item), None))
     denivele = next((item[1] for item in values_list if "Dénivelé" in item), None).replace(" ", "").replace("m", "").replace('\xa0', '')
     type = next((item[1] for item in values_list if "Type" in item), None)
