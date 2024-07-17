@@ -1,0 +1,38 @@
+{
+    // Editor
+    "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.rulers": [
+        88
+    ],
+    "editor.wordWrapColumn": 88,
+    "files.associations": {
+        "./requirements/*.txt": "pip-requirements",
+        "metadata.txt": "ini",
+        "**/*.ts": "xml",
+        "**/*.ui": "xml"
+    },
+    // Python environment
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.terminal.activateEnvironment": true,
+    // Formatter
+    "python.formatting.provider": "black",
+    // Linter
+    "python.linting.enabled": true,
+
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--config=setup.cfg",
+        "--verbose"
+    ],
+
+    "python.linting.pylintEnabled": false,
+
+    // Extensions
+    "autoDocstring.docstringFormat": "sphinx"
+}
